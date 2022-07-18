@@ -1,1 +1,88 @@
-<p>item works!</p>
+<h1>Employee
+    <small>Employee name</small></h1>
+<hr>
+<div class="row text-end">
+
+    <div class="col">
+        <button routerLink="/items" class=" btn btn-danger ">
+            <i class="fa fa-arrow-left "> Back</i>
+        </button>
+    </div>
+</div>
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="save( form )" #form="ngForm">
+
+            <div class="form-group">
+
+                <label>Firebase Id</label>
+                <input [(ngModel)]="employee.id" name="id" type="text" class="form-control" placeholder="Firebase-ID" disabled>
+                <small class=" form-text text-muted ">This field is auto-generated</small>
+            </div>
+
+            <div class="form-group">
+
+                <label>First Name</label>
+                <input [(ngModel)]="employee.firstName" name="firstName" type=" text " class="form-control " placeholder="First Name " required>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label>Last Name</label>
+                <input [(ngModel)]="employee.lastName " name="lastName" type=" text " class="form-control " placeholder="Last Name " required>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label>Age</label>
+                <input [(ngModel)]="employee.age " name="age" type=" text " class="form-control " placeholder="Age " required>
+
+            </div>
+            <div class="form-group ">
+
+                <label>Position</label>
+                <input [(ngModel)]="employee.position " name="position" type="text " class="form-control " placeholder="Position " required>
+
+            </div>
+            <div class="form-group ">
+
+                <label>E-Mail</label>
+                <input [(ngModel)]="employee.email " name="email" type="email" class=" form-control " placeholder="E-Mail " required>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label>Health Status</label>
+                <br>
+                <button *ngIf="employee.healthStatus" (click)="employee.healthStatus = false" class=" btn btn-outline-success w-50 " type="button ">
+
+                    <i class="fa fa-smile-wink "></i>
+                    Good
+                </button>
+
+                <button *ngIf="!employee.healthStatus" (click)="employee.healthStatus = true" class="btn btn-outline-danger w-50 " type="button ">
+
+                    <i class="fa fa-dizzy "></i>
+                    Poor
+                </button>
+
+
+            </div>
+
+            <div class="form-group text-center mt-3 ">
+
+                <button type="submit " class="btn btn-primary w-25 ">
+                    <i class="fa fa-save "></i> Save
+                </button>
+            </div>
+
+
+
+        </form>
+
+    </div>
+
+</div>

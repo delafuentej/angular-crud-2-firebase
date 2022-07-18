@@ -1,1 +1,56 @@
-<p>items works!</p>
+<h1>List Items</h1>
+<hr>
+<div class="row">
+    <div class="col text-end">
+        <button routerLink="/item/new" class=" btn btn-success ">
+            <i class="fa fa-plus "> Add</i>
+        </button>
+
+    </div>
+</div>
+<table class="table mt-4 animate__animated animate__bounce animate__delay-2s ">
+    <thead class="table-dark ">
+        <tr>
+            <th scope="col ">#</th>
+            <th scope="col ">First Name</th>
+            <th scope="col ">Last Name</th>
+            <th scope="col ">Age</th>
+            <th scope="col ">Position</th>
+            <th scope="col ">Email</th>
+            <th scope="col ">Health Status</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row ">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+
+
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="alert alert-warning text-center mt-3 ">
+    <h4 class="alert-heading ">No items</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x "></i>
+    </p>
+</div>
+
+<div class="alert alert-info text-center mt-3 ">
+    <h4 class="alert-heading ">Loading...</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x "></i>
+    </p>
+    <p class="mb-0 ">Please wait
+    </p>
+
+</div>
