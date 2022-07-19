@@ -18,6 +18,19 @@ export class EmployeesService {
      employee.id= res.name;
      return employee;
     }))
+  }
 
+  updateEmployee( employee: EmployeeModel){
+
+    const employeeTemplate={
+      ...employee
+
+    };
+  
+    delete employeeTemplate.id;
+    console.log('ohneId',employeeTemplate)
+  
+    return this.http.put(`${this.url}/employees/${employee.id}.json`, employeeTemplate);
+    
   }
 }

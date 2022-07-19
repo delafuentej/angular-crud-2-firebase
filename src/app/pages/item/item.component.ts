@@ -21,8 +21,20 @@ export class ItemComponent implements OnInit {
 
     if(form.invalid) return;
 
-   this.employeesService.createEmployee( this.employee).subscribe( res =>{
-    this.employee=res;
-   })
+    if(this.employee.id){
+      this.employeesService.updateEmployee( this.employee).subscribe( res =>{
+        console.log(res)
+      })
+
+    }else{
+      this.employeesService.createEmployee( this.employee).subscribe( res =>{
+        this.employee=res;
+    
+      });
+        
+
+    }
+
+   
   }
 }
