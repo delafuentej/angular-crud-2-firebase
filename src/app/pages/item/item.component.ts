@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeModel } from '../../models/employee.model';
 import { EmployeesService } from '../../services/employees.service';
+import Swal  from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-item',
@@ -21,19 +23,33 @@ export class ItemComponent implements OnInit {
 
     if(form.invalid) return;
 
+    Swal.fire({
+      title: 'Wait',
+      text: 'Saving Data',
+      icon: 'info',
+      allowOutsideClick: false
+
+    });
+    Swal.showLoading();
+
+    let request: Observable<any>;
+
     if(this.employee.id){
-      this.employeesService.updateEmployee( this.employee).subscribe( res =>{
-        console.log(res)
-      })
+      request=this.employeesService.updateEmployee( this.employee);
+      
 
     }else{
-      this.employeesService.createEmployee( this.employee).subscribe( res =>{
-        this.employee=res;
-    
-      });
+      request= this.employeesService.createEmployee( this.employee);
         
 
     }
+    request.subscribe( res=>{
+      Swal.fire({
+          title: `${this.employee.firstName} ${this.employee.lastName} `,
+          text: 'Successfully updated',
+          icon: 'success'
+      });
+    })
 
    
   }
