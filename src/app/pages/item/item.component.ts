@@ -43,6 +43,7 @@ export class ItemComponent implements OnInit {
         
 
     }
+    
     request.subscribe( res=>{
       Swal.fire({
           title: `${this.employee.firstName} ${this.employee.lastName} `,

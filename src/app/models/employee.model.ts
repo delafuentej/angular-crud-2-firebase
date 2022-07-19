@@ -1,5 +1,5 @@
 export class EmployeeModel{
-    id?:string;
+    id?: string;
     firstName: string;
     lastName: string;
     age:number;
@@ -14,7 +14,7 @@ export class EmployeeModel{
         this.age=0;
         this.position="";
         this.email="";
-        this.goodHealth= true;
+        this.goodHealth=true;
     }
 
 

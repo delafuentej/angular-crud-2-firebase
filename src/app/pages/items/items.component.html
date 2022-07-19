@@ -17,20 +17,26 @@
             <th scope="col ">Age</th>
             <th scope="col ">Position</th>
             <th scope="col ">Email</th>
-            <th scope="col ">Good Health</th>
+            <th scope="col ">Health</th>
 
 
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row ">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+        <tr *ngFor="let employee of employees, let i=index">
+            <th scope=" row ">{{i+1}}</th>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.position}}</td>
+            <td>{{employee.email}}</td>
+            <td>
+
+                <label *ngIf="employee.goodHealth" class="badge bg-success">Good
+                    </label>
+                <label *ngIf="!employee.goodHealth" class="badge bg-danger">Poor</label>
+
+            </td>
 
 
         </tr>
@@ -38,14 +44,14 @@
     </tbody>
 </table>
 
-<div class="alert alert-warning text-center mt-3 ">
+<div *ngIf="!employees " class="alert alert-warning text-center mt-3 ">
     <h4 class="alert-heading ">No items</h4>
     <p>
         <i class="fa fa-exclamation fa-2x "></i>
     </p>
 </div>
 
-<div class="alert alert-info text-center mt-3 ">
+<div *ngIf="loading" class=" alert alert-info text-center mt-3 ">
     <h4 class="alert-heading ">Loading...</h4>
     <p>
         <i class="fa fa-sync-alt fa-spin fa-2x "></i>

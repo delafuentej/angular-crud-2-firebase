@@ -33,4 +33,29 @@ export class EmployeesService {
     return this.http.put(`${this.url}/employees/${employee.id}.json`, employeeTemplate);
     
   }
+
+  getEmployees(){
+    return this.http.get(`${this.url}/employees.json`)
+    .pipe( map( 
+      this.createArray
+    ));
+  }
+
+  
+  private createArray( employeesObj:any ){
+    
+    const employees: EmployeeModel[]=[];
+    console.log('employeesObj',employeesObj);
+    if( employeesObj === null) return [];
+    /* if( employeesObj === null) return [];
+ */
+
+    Object.keys( employeesObj).forEach((key) =>{
+      const employee: EmployeeModel= employeesObj[key];
+      employee.id= key;
+
+      employees.push( employee );
+    });
+    return employees;
+  }
 }
