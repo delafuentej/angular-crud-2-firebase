@@ -5,7 +5,7 @@ export class EmployeeModel{
     age:number;
     position:string;
     email:string;
-    healthStatus:boolean;
+    goodHealth:boolean;
 
     constructor(){
         this.id="";
@@ -14,7 +14,7 @@ export class EmployeeModel{
         this.age=0;
         this.position="";
         this.email="";
-        this.healthStatus= true;
+        this.goodHealth= true;
     }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeModel } from '../../models/employee.model';
+import { EmployeesService } from '../../services/employees.service';
 
 @Component({
   selector: 'app-item',
@@ -11,7 +12,7 @@ export class ItemComponent implements OnInit {
 
   employee= new EmployeeModel();
 
-  constructor() { }
+  constructor( private employeesService: EmployeesService) { }
 
   ngOnInit(): void {
   }
@@ -19,8 +20,9 @@ export class ItemComponent implements OnInit {
   save( form: NgForm){
 
     if(form.invalid) return;
-    
-    console.log(form)
-    console.log(this.employee)
+
+   this.employeesService.createEmployee( this.employee).subscribe( res =>{
+    this.employee=res;
+   })
   }
 }

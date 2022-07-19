@@ -57,13 +57,13 @@
 
                 <label>Health Status</label>
                 <br>
-                <button *ngIf="employee.healthStatus" (click)="employee.healthStatus = false" class=" btn btn-outline-success w-50 " type="button ">
+                <button *ngIf="employee.goodHealth" (click)="employee.goodHealth = false" class=" btn btn-outline-success w-50 " type="button ">
 
                     <i class="fa fa-smile-wink "></i>
                     Good
                 </button>
 
-                <button *ngIf="!employee.healthStatus" (click)="employee.healthStatus = true" class="btn btn-outline-danger w-50 " type="button ">
+                <button *ngIf="!employee.goodHealth" (click)="employee.goodHealth = true" class="btn btn-outline-danger w-50 " type="button ">
 
                     <i class="fa fa-dizzy "></i>
                     Poor
