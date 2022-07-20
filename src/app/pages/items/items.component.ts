@@ -15,8 +15,6 @@ export class ItemsComponent implements OnInit {
 
   public loading:boolean=false;
 
-  public employee:any;
-
 
   constructor(private employeesService: EmployeesService) { }
 
@@ -32,7 +30,8 @@ export class ItemsComponent implements OnInit {
 
   }
 
-  deleteEmployee(employee: EmployeeModel, i:number){
+  
+  deleteEmployee(employee:any, i:number){
     Swal.fire({
      title:'Are you sure?',
      text: `Are you sure to delete ${employee.firstName} ${employee.lastName}`,
@@ -44,7 +43,7 @@ export class ItemsComponent implements OnInit {
     }). then( res =>{
      if(res.value){
        this.employees.splice(i,1);
-       this.employeesService.deleteEmployee( employee.id).subscribe;
+       this.employeesService.deleteEmployee( employee.id).subscribe();
      }
     })
   }

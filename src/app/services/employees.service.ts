@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class EmployeesService {
 
   private url="https://angular-crud-6bb29-default-rtdb.europe-west1.firebasedatabase.app"
-  
+
 
   constructor(private http: HttpClient) { }
 
