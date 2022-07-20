@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class EmployeesService {
 
   private url="https://angular-crud-6bb29-default-rtdb.europe-west1.firebasedatabase.app"
+  
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,13 @@ export class EmployeesService {
      employee.id= res.name;
      return employee;
     }))
+  }
+
+  deleteEmployee(id:string){
+    return this.http.delete(`${this.url}/employees/${id}.json`)
+  }
+  getEmployee(id:string){
+    return this.http.get(`${this.url}/employees/${id}.json`)
   }
 
   updateEmployee( employee: EmployeeModel){
@@ -59,7 +67,7 @@ export class EmployeesService {
     return employees;
   }
 
-  getEmployee(id:string){
-    return this.http.get(`${this.url}/employees/${id}.json`)
-  }
+  
+
+  
 }
