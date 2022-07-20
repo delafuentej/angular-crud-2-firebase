@@ -4,6 +4,7 @@ import { EmployeeModel } from '../../models/employee.model';
 import { EmployeesService } from '../../services/employees.service';
 import Swal  from 'sweetalert2';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -14,9 +15,19 @@ export class ItemComponent implements OnInit {
 
   employee= new EmployeeModel();
 
-  constructor( private employeesService: EmployeesService) { }
+  
+
+  constructor( private employeesService: EmployeesService, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    const id: any= this.activatedRoute.snapshot.paramMap.get('id');
+   /*  console.log( id) */
+    if(id !== 'new'){
+       this.employeesService.getEmployee(id).subscribe( (res:any)=>{
+        this.employee=res;
+        this.employee.id=id;
+      });
+    }
   }
 
   save( form: NgForm){
@@ -43,7 +54,7 @@ export class ItemComponent implements OnInit {
         
 
     }
-    
+
     request.subscribe( res=>{
       Swal.fire({
           title: `${this.employee.firstName} ${this.employee.lastName} `,

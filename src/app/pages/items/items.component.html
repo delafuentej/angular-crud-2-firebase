@@ -1,8 +1,8 @@
-<h1>List Items</h1>
+<h1>List Employees</h1>
 <hr>
 <div class="row">
     <div class="col text-end">
-        <button routerLink="/item/new" class=" btn btn-success ">
+        <button routerLink="/employee/new" class=" btn btn-success ">
             <i class="fa fa-plus "> Add</i>
         </button>
 
@@ -18,23 +18,39 @@
             <th scope="col ">Position</th>
             <th scope="col ">Email</th>
             <th scope="col ">Health</th>
+            <th scope="col ">Tools</th>
 
 
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees, let i=index">
+        <tr *ngFor="let employee of employees, let i=index ">
             <th scope=" row ">{{i+1}}</th>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
             <td>{{employee.age}}</td>
             <td>{{employee.position}}</td>
             <td>{{employee.email}}</td>
-            <td class="d-flex align-items-center justify-content-center">
+            <td class="d-flex align-items-center justify-content-center ">
 
-                <label *ngIf="employee.goodHealth" class="badge bg-success">Good
-                    </label>
-                <label *ngIf="!employee.goodHealth" class="badge bg-danger">Poor</label>
+                <label *ngIf="employee.goodHealth " class="badge bg-success ">Good
+                </label>
+                <label *ngIf="!employee.goodHealth " class="badge bg-danger ">Poor</label>
+
+            </td>
+
+            <td>
+
+                <button [routerLink]="['/employee',employee.id]" class="btn btn-outline-info m-auto ">
+                    <i class="fa fa-pen "></i>
+
+                </button>
+
+                <button class="btn btn-outline-danger ">
+                    <i class="fa fa-trash "></i>
+
+                </button>
+
 
             </td>
 
@@ -51,7 +67,7 @@
     </p>
 </div>
 
-<div *ngIf="loading" class=" alert alert-info text-center mt-3 ">
+<div *ngIf="loading " class=" alert alert-info text-center mt-3 ">
     <h4 class="alert-heading ">Loading...</h4>
     <p>
         <i class="fa fa-sync-alt fa-spin fa-2x "></i>

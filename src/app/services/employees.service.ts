@@ -58,4 +58,8 @@ export class EmployeesService {
     });
     return employees;
   }
+
+  getEmployee(id:string){
+    return this.http.get(`${this.url}/employees/${id}.json`)
+  }
 }

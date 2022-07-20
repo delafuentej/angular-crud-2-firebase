@@ -5,9 +5,9 @@ import { ItemsComponent } from './pages/items/items.component';
 import { ItemComponent } from './pages/item/item.component';
 
 const routes: Routes=[
-  { path:'items', component: ItemsComponent },
-  { path:'item/:id', component: ItemComponent },
-  { path: '**', pathMatch:'full', redirectTo:'items'}
+  { path:'employees', component: ItemsComponent },
+  { path:'employee/:id', component: ItemComponent },
+  { path: '**', pathMatch:'full', redirectTo:'employees'}
 ]
 
 
