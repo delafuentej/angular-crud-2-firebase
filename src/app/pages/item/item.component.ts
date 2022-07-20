@@ -26,6 +26,7 @@ export class ItemComponent implements OnInit {
        this.employeesService.getEmployee(id).subscribe( (res:any)=>{
         this.employee=res;
         this.employee.id=id;
+        return this.employee;
       });
     }
   }
