@@ -60,14 +60,14 @@
     </tbody>
 </table>
 
-<div *ngIf="!employees " class="alert alert-warning text-center mt-3 ">
+<div *ngIf="employees.length===0" class="alert alert-warning text-center mt-3 ">
     <h4 class="alert-heading ">No items</h4>
     <p>
         <i class="fa fa-exclamation fa-2x "></i>
     </p>
 </div>
 
-<div *ngIf="loading " class=" alert alert-info text-center mt-3 ">
+<div *ngIf="loading" class=" alert alert-info text-center mt-3 ">
     <h4 class="alert-heading ">Loading...</h4>
     <p>
         <i class="fa fa-sync-alt fa-spin fa-2x "></i>
